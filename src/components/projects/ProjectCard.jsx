@@ -21,7 +21,7 @@ const ProjectCard = ({ title, description, inProgress,bgImg }) => {
         <Button variant="outline" size="md" colorScheme="orange">
           View live
         </Button>
-        <Button variant="outline" colorScheme="blue">
+        <Button variant="ghost" colorScheme="blue">
           {" "}
           Source Code
         </Button>

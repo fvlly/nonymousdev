@@ -1,6 +1,7 @@
 import { VStack, Box, Heading, Text, Flex, Button } from "@chakra-ui/react/";
+import { motion } from "framer-motion";
 
-const ProjectCard = ({ title, description, inProgress,bgImg }) => {
+const ProjectCard = ({ title, description, inProgress, bgImg }) => {
   const renderButton = () => {
     if (inProgress) {
       return (
@@ -31,6 +32,10 @@ const ProjectCard = ({ title, description, inProgress,bgImg }) => {
 
   return (
     <Box
+      as={motion.div}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition="0.3s linear "
       boxShadow="lg"
       minH={["300px"]}
       borderRadius={["10px", "12px"]}
@@ -41,16 +46,14 @@ const ProjectCard = ({ title, description, inProgress,bgImg }) => {
         minH="150px"
         bgImage={bgImg}
         bgSize="cover"
-        roundedTop='10px'
+        roundedTop="10px"
         backgroundRepeat="no-repeat"
       ></Box>
       <Box p={[2, 3]}>
-        <Heading as="h5" fontFamily="Montserrat sans-serif" my={[4, 6]}>
+        <Heading as="h5" fontFamily="'Poppins', sans-serif" my={[4, 6]}>
           {title}
         </Heading>
-        <Text fontFamily="Montserrat sans-serif" fontSize={["18px", "24px"]}>
-          {description}
-        </Text>
+        <Text fontSize={["18px", "24px"]}>{description}</Text>
         {renderButton()}
       </Box>
     </Box>

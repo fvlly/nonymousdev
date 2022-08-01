@@ -2,11 +2,11 @@ import React from "react";
 import { Container } from "@chakra-ui/react";
 import About from "./components/About.jsx";
 import Home from "./components/Home.jsx";
-import NavBar from "./components/NavBar";
 import Contact from "./components/Contact";
 import ProjectList from "./components/projects/ProjectList.jsx";
 import Header from "./components/Header.jsx";
 import { BrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
   return (
@@ -19,6 +19,7 @@ const App = () => {
           <ProjectList />
           <Contact />
         </Container>
+        <Footer />
       </BrowserRouter>
     </>
   );

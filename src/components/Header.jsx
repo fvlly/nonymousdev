@@ -1,11 +1,11 @@
 import { Flex, Image, HStack, Text, Link } from "@chakra-ui/react";
 import Hamburger from "./Hamburger";
-import { Link as ReactRouterLink } from "react-router-dom";
-
+import { HashLink } from "react-router-hash-link";
 const Header = () => {
   return (
     <Flex
       position="sticky"
+      top={0}
       bgColor="gray.200"
       minH="10vh"
       px={6}
@@ -13,7 +13,9 @@ const Header = () => {
       align="center"
       justify="space-between"
     >
-      <Image src="../../images/devlogo.png" w="50px" />
+      <Link as={HashLink} to="#home">
+        <Image src="../../images/devlogo.png" w="50px" />
+      </Link>
       <HStack
         display={{ base: "none", md: "flex" }}
         fontWeight="bold"
@@ -22,18 +24,17 @@ const Header = () => {
         as="nav"
         spacing={5}
       >
-        <Link as={ReactRouterLink} to="/">
-          Home
-        </Link>
-        <Link as={ReactRouterLink} to="/">
+        <Link textDecoration="none" as={HashLink} to="#about">
           About
         </Link>
-        <Link as={ReactRouterLink} to="/">
+        <Link textDecoration="project" as={HashLink} to="#project">
           Project
+        </Link>
+        <Link as={HashLink} to="#contact" textDecoration="none">
+          Contact
         </Link>
       </HStack>
       <Hamburger />
-
     </Flex>
   );
 };

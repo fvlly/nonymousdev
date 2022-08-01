@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import {
   Box,
   Heading,
@@ -33,13 +34,14 @@ const Home = () => {
   console.log(lottieRef);
 
   return (
-    <Box
+    <Box as='section'
       bgColor="gray.100"
       position="relative"
       display="flex"
       minH="100vh"
       alignItems={"center"}
       justifyContent="center"
+      id='home'
     >
       <Box
         color="blue.900"
@@ -49,7 +51,10 @@ const Home = () => {
         top="30%"
       >
         <Text
-          as="h5"
+          as={motion.h2}
+          initial={{ y: "-100vh" }}
+          animate={{ y: 0 }}
+          transition="0.5s ease-in"
           fontFamily="'Poppins', sans-serif"
           fontSize={["16px", "30px", "30px", "40px"]}
           lineHeight={["30px", "45px", "45px", "65px"]}
@@ -57,6 +62,11 @@ const Home = () => {
           Meet
         </Text>
         <Heading
+          as={motion.h2}
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          transition=".7s ease-in 1s"
+          whileHover={{ scale: 1.2 }}
           fontFamily="'Poppins', sans-serif"
           fontSize={["28px", "40px", "50px", "80px"]}
           lineHeight={["40px", "60px", "60px", "96px"]}
@@ -65,7 +75,10 @@ const Home = () => {
           Luqman Ibrahim
         </Heading>
         <Text
-          as="h5"
+          as={motion.h2}
+          initial={{ y: "100vh" }}
+          animate={{ y: 0 }}
+          transition=".5s ease-in 1.5s"
           fontFamily="'Poppins', sans-serif"
           fontSize={["18px", "30px", "30px", "35px"]}
           lineHeight={["30px", "45px", "45px", "60px"]}
@@ -74,6 +87,12 @@ const Home = () => {
         </Text>
         <Flex my={[8, 10]} justify="center">
           <Button
+            as={motion.button}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ scale: 1.1, backgroundColor: "blue.600" }}
+            whileTap={{scale:0.9}}
+            transition=".7s ease-in 2s"
             fontFamily="'Poppins', sans-serif"
             fontSize={["initial", "md", "large"]}
             bgColor="blue.900"
@@ -85,11 +104,17 @@ const Home = () => {
             View Projects
           </Button>
         </Flex>
-        <Flex justify='center'>
+        <Flex
+          justify="center"
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition=".7s ease-in 2s"
+        >
           <HStack>
-            <Icon as={AiFillLinkedin} w={[6,8]} h={[6,8]} />
-            <Icon as={AiFillGithub} w={[6,8]} h={[6,8]}/>
-            <Icon as={AiOutlineWhatsApp} w={[6,8]} h={[6,8]}/>
+            <Icon as={AiFillLinkedin} w={[6, 8]} h={[6, 8]} />
+            <Icon as={AiFillGithub} w={[6, 8]} h={[6, 8]} />
+            <Icon as={AiOutlineWhatsApp} w={[6, 8]} h={[6, 8]} />
           </HStack>
         </Flex>
       </Box>

@@ -1,11 +1,12 @@
 import { Flex, Text, Heading, VStack } from "@chakra-ui/react";
 const About = () => {
   return (
-    <Flex
+    <Flex as='section'
       color="blue.900"
       minHeight={"100vh"}
       direction="column"
       align="center"
+      id='about'
     >
       <Heading
         fontFamily="'Poppins', sans-serif"

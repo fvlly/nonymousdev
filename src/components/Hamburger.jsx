@@ -13,8 +13,8 @@ import {
   VStack,
   Link,
 } from "@chakra-ui/react";
-import { Link as ReactRouterLink } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -46,14 +46,14 @@ const Hamburger = () => {
               fontFamily="'Poppins', sans-serif"
               spacing={10}
             >
-              <Link as={ReactRouterLink} to="/">
-                Home
-              </Link>
-              <Link as={ReactRouterLink} to="/">
+              <Link  as={HashLink} to="#About">
                 About
               </Link>
-              <Link as={ReactRouterLink} to="/">
-                Project
+              <Link as={HashLink} to="#Project">
+                Projects
+              </Link>
+              <Link as={HashLink} to="#contact">
+                Contact
               </Link>
             </VStack>
           </DrawerBody>

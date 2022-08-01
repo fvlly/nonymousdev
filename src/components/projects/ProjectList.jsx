@@ -3,11 +3,11 @@ import ProjectCard from "./ProjectCard";
 
 const ProjectList = () => {
   return (
-    <Box minH={"100vh"} color="blue.900">
+    <Box as='section' id='project' minH={"100vh"} color="blue.900">
       <Heading textAlign={"center"} mb={[6, 8, 10]}>
         My Projects
       </Heading>
-      <SimpleGrid minChildWidth={"300px"} columns={[1, 2, 2]} spacing="12px">
+      <SimpleGrid minChildWidth={"300px"} columns={[1, 2, 2]} spacing={[4,5,6]}>
         <ProjectCard
           title="React Movie App"
           description="Simple react application that fetch data from OMDB API"

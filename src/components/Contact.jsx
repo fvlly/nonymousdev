@@ -8,24 +8,41 @@ import {
   FormLabel,
   Input,
   FormErrorMessage,
-  FormHelperText,
-  Alert,
   Button,
   Flex,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 
 const Contact = () => {
-  const { register, handleSubmit, formState:{errors} } = useForm();
+  //impore UI
+  const toast = useToast();
+
+  // react-hook-form setup
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  console.log(errors);
 
   //helper
   const onFormSubmit = (data) => {
     console.log(data);
+    toast({
+    
+      title: "Submitted!",
+      status: "info",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (
-    <Box as='section'
-      id='contact'
+    <Box
+      as="section"
+      id="contact"
       fontFamily="'Poppins', sans-serif"
       w={["80%", "60%"]}
       mx="auto"
@@ -52,7 +69,11 @@ const Contact = () => {
       </Heading>
 
       <form onSubmit={handleSubmit(onFormSubmit)}>
-        <FormControl fontFamily="'Poppins', sans-serif" color="blue.900">
+        <FormControl
+          isInvalid={errors.name || errors.email || errors.message}
+          fontFamily="'Poppins', sans-serif"
+          color="blue.900"
+        >
           <FormLabel>Name</FormLabel>
           <Input
             {...register("name", {
@@ -61,12 +82,19 @@ const Contact = () => {
             type="text"
             placeholder="Your Name"
           />
+          <FormErrorMessage>
+            {errors.name && errors.name.message}
+          </FormErrorMessage>
           <FormLabel>Email address</FormLabel>
           <Input
             {...register("email", { required: "Please enter Valid email" })}
             type="email"
             placeholder="Your Email"
           />
+          <FormErrorMessage>
+            {errors.email && errors.email.message}
+          </FormErrorMessage>
+
           <Textarea
             {...register("message", {
               required: "Kindly leave a message ",
@@ -75,6 +103,10 @@ const Contact = () => {
             mt={4}
             placeholder="Your Message"
           />
+          <FormErrorMessage>
+            {errors.message && errors.message.message}
+          </FormErrorMessage>
+
           <Flex my={[4, 6]} py={["10px", "20px"]} justifyContent={"end"}>
             <Button
               type="submit"

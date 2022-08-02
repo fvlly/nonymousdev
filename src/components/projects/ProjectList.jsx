@@ -4,29 +4,31 @@ import ProjectCard from "./ProjectCard";
 const ProjectList = () => {
   return (
     <Box as='section' id='project' minH={"100vh"} color="blue.900">
-      <Heading textAlign={"center"} mb={[6, 8, 10]}>
+      <Heading textAlign={"center"} pt={200} mb={[6, 8, 10]}>
         My Projects
       </Heading>
       <SimpleGrid minChildWidth={"300px"} columns={[1, 2, 2]} spacing={[4,5,6]}>
         <ProjectCard
-          title="React Movie App"
-          description="Simple react application that fetch data from OMDB API"
+          title="iMovies"
+          description="React with styled props app to search movie titles from OMDB API"
           bgImg="../../images/movie.png"
         />
         <ProjectCard
           title="Akagum"
-          description="Expenser that utilizing the context API"
+          description="Expense tracker app using the useContext and useReducer Hook"
           bgImg="../../images/expense.png"
         />
         <ProjectCard
           title="Task Manager"
-          description="Api for creating task and user with Authentication: JW token"
+          description="Server for tasks management utilzing user authentication(JWT)"
           bgImg="../../images/api.png"
         />
         <ProjectCard
           title="Feedback Loop"
           description="Web application for getting feeback from  clients"
           inProgress="in-Progress"
+          bgImg="../../images/feedback.png"
+
         />
       </SimpleGrid>
     </Box>

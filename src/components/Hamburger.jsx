@@ -44,9 +44,9 @@ const Hamburger = () => {
               fontWeight="bold"
               fontSize="large"
               fontFamily="'Poppins', sans-serif"
-              spacing={10}
+              spacing={20}
             >
-              <Link  as={HashLink} to="#About">
+              <Link  as={HashLink} to="#About" onClick={onClose}>
                 About
               </Link>
               <Link as={HashLink} to="#Project">

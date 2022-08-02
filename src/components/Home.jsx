@@ -1,14 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  Box,
-  Heading,
-  Text,
-  Flex,
-  Button,
-  HStack,
-  Icon,
-} from "@chakra-ui/react";
+import { HashLink } from "react-router-hash-link";
+import {Box,Heading,Text,Flex,Button,HStack,Icon,Link,} from "@chakra-ui/react";
 import {
   AiFillLinkedin,
   AiFillGithub,
@@ -16,6 +9,52 @@ import {
 } from "react-icons/ai";
 import lottie from "lottie-web/build/player/lottie_light";
 import heroblob from "../lottie/heroblob.json";
+
+//animations
+
+const containerVariants = {
+  hidden: { y: "-100vh" },
+  visible: {
+    y: 0,
+    transition: {
+      delay: 0.5,
+      when: "beforeChildren",
+    },
+  },
+  hover: {
+    scale: 1.2,
+  },
+};
+
+const buttonVariants = {
+  hidden: {
+    y: 20,
+  },
+  visible: {
+    y: 0,
+    transition: {
+      yoyo: Infinity,
+    },
+  },
+  hover: {
+    backgroundColor: "blue.700",
+    scale: 1.1,
+    transition: {
+      yoyo: 10,
+    },
+  },
+};
+
+const linkVariants = {
+  hover: {
+    y: [-10, 0, 10, 5, 0],
+    scale: 1.2,
+    color: "orange.500",
+    transition: {
+      delay: 0.5,
+    },
+  },
+};
 
 const Home = () => {
   const lottieRef = useRef(null);
@@ -34,14 +73,15 @@ const Home = () => {
   console.log(lottieRef);
 
   return (
-    <Box as='section'
+    <Box
+      as="section"
       bgColor="gray.100"
       position="relative"
       display="flex"
       minH="100vh"
       alignItems={"center"}
       justifyContent="center"
-      id='home'
+      id="home"
     >
       <Box
         color="blue.900"
@@ -52,9 +92,9 @@ const Home = () => {
       >
         <Text
           as={motion.h2}
-          initial={{ y: "-100vh" }}
-          animate={{ y: 0 }}
-          transition="0.5s ease-in"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           fontFamily="'Poppins', sans-serif"
           fontSize={["16px", "30px", "30px", "40px"]}
           lineHeight={["30px", "45px", "45px", "65px"]}
@@ -63,10 +103,10 @@ const Home = () => {
         </Text>
         <Heading
           as={motion.h2}
-          initial={{ x: "-100vw" }}
-          animate={{ x: 0 }}
-          transition=".7s ease-in 1s"
-          whileHover={{ scale: 1.2 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          whileHover="hover"
           fontFamily="'Poppins', sans-serif"
           fontSize={["28px", "40px", "50px", "80px"]}
           lineHeight={["40px", "60px", "60px", "96px"]}
@@ -76,33 +116,41 @@ const Home = () => {
         </Heading>
         <Text
           as={motion.h2}
-          initial={{ y: "100vh" }}
-          animate={{ y: 0 }}
-          transition=".5s ease-in 1.5s"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           fontFamily="'Poppins', sans-serif"
           fontSize={["18px", "30px", "30px", "35px"]}
           lineHeight={["30px", "45px", "45px", "60px"]}
         >
           A dedicated self-taught FullStack Developer
         </Text>
-        <Flex my={[8, 10]} justify="center">
-          <Button
-            as={motion.button}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            whileHover={{ scale: 1.1, backgroundColor: "blue.600" }}
-            whileTap={{scale:0.9}}
-            transition=".7s ease-in 2s"
-            fontFamily="'Poppins', sans-serif"
-            fontSize={["initial", "md", "large"]}
-            bgColor="blue.900"
-            color="white"
-            rounded="20px"
-            w="200px"
-            size={["sm", "md", "lg"]}
-          >
-            View Projects
-          </Button>
+        <Flex
+          as={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          my={[8, 10]}
+          justify="center"
+        >
+          <Link as={HashLink} to="#project">
+            <Button
+              as={motion.button}
+              variants={buttonVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              fontFamily="'Poppins', sans-serif"
+              fontSize={["initial", "md", "large"]}
+              bgColor="blue.900"
+              color="white"
+              rounded="20px"
+              w="200px"
+              size={["sm", "md", "lg"]}
+            >
+              View Projects
+            </Button>
+          </Link>
         </Flex>
         <Flex
           justify="center"
@@ -111,10 +159,31 @@ const Home = () => {
           animate={{ opacity: 1 }}
           transition=".7s ease-in 2s"
         >
-          <HStack>
-            <Icon as={AiFillLinkedin} w={[6, 8]} h={[6, 8]} />
-            <Icon as={AiFillGithub} w={[6, 8]} h={[6, 8]} />
-            <Icon as={AiOutlineWhatsApp} w={[6, 8]} h={[6, 8]} />
+          <HStack pt={20} spacing={[8, 10, 12]}>
+            <Link
+              as={motion.a}
+              variants={linkVariants}
+              whileHover="hover"
+              href="https://www.linkedin.com/in/luqman-ibrahim-62955222a/"
+            >
+              <Icon as={AiFillLinkedin} w={[6, 8]} h={[6, 8]} />
+            </Link>
+            <Link
+              as={motion.a}
+              variants={linkVariants}
+              whileHover="hover"
+              href="https://github.com/fvlly"
+            >
+              <Icon as={AiFillGithub} w={[6, 8]} h={[6, 8]} />
+            </Link>
+            <Link
+              as={motion.a}
+              variants={linkVariants}
+              whileHover="hover"
+              href="https://wa.me/36203147860"
+            >
+              <Icon as={AiOutlineWhatsApp} w={[6, 8]} h={[6, 8]} />
+            </Link>
           </HStack>
         </Flex>
       </Box>

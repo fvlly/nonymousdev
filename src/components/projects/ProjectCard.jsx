@@ -8,11 +8,12 @@ const ProjectCard = ({ title, description, inProgress, bgImg }) => {
         <Button
           my={[6, 8]}
           variant="outline"
-          size="md"
-          colorScheme="orange"
+          size="lg"
+          colorScheme="white"
+          color='white'
           disabled
         >
-          Coming soon
+          In progress
         </Button>
       );
     }
@@ -49,11 +50,11 @@ const ProjectCard = ({ title, description, inProgress, bgImg }) => {
         roundedTop="10px"
         backgroundRepeat="no-repeat"
       ></Box>
-      <Box p={[2, 3]}>
+      <Box p={[2, 3]} backgroundColor={inProgress && 'blue.900'} color={inProgress && 'white'}>
         <Heading as="h5" fontFamily="'Poppins', sans-serif" my={[4, 6]}>
           {title}
         </Heading>
-        <Text fontSize={["18px", "24px"]}>{description}</Text>
+        <Text fontSize={["18px",'18px', "24px"]}>{description}</Text>
         {renderButton()}
       </Box>
     </Box>

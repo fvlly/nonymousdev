@@ -1,5 +1,5 @@
 import { useState,useEffect} from "react";
-import { Flex, Image, HStack, Text, Link } from "@chakra-ui/react";
+import { Flex, Image, HStack, Text, Link, textDecoration } from "@chakra-ui/react";
 import Hamburger from "./Hamburger";
 import { HashLink } from "react-router-hash-link";
 const Header = () => {
@@ -26,10 +26,19 @@ const Header = () => {
       bgColor={isChangeable ? "white" : "gray.100"}
       color= "orange.500"
       minH="10vh"
-      px={6}
+      px={8}
       py={5}
       align="center"
       justify="space-between"
+      sx={{
+        a: {
+  
+          _hover: {
+            color: "orange.800",
+            textDecoration:'none'
+          }
+        }
+      }}
     >
       <Link as={HashLink} to="#home">
         <Image src="../../images/devlogo.png" w="50px" />
@@ -38,7 +47,6 @@ const Header = () => {
         display={{ base: "none", md: "flex" }}
         fontWeight="bold"
         fontSize="large"
-        fontFamily="'Poppins', sans-serif"
         as="nav"
         spacing={5}
       >

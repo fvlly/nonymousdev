@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
   Box,
@@ -12,16 +13,18 @@ import {
   Flex,
   useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  //impore UI
+  const contactRef = useRef();
+  //notfiy user on successful submit
   const toast = useToast();
 
   // react-hook-form setup
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -29,9 +32,25 @@ const Contact = () => {
 
   //helper
   const onFormSubmit = (data) => {
-    console.log(data);
+    console.log(import.meta.env.VITE_EMAILJS_PUBLIC_API_KEY);
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        contactRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_API_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          reset()
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
     toast({
-    
       title: "Submitted!",
       status: "info",
       duration: 3000,
@@ -43,21 +62,18 @@ const Contact = () => {
     <Box
       as="section"
       id="contact"
-      fontFamily="'Poppins', sans-serif"
       w={["80%", "60%"]}
       mx="auto"
     >
       <Text
-        fontFamily="'Poppins', sans-serif"
         textAlign={"center"}
         fontSize={["sm", "md", "lg"]}
-        mt={[6, 8]}
+        mt={[8, 10]}
         color={"blue.500"}
       >
         Doesn't have to end here, let's work together
       </Text>
       <Heading
-        fontFamily="'Poppins', sans-serif"
         as="h2"
         fontSize={["22px", "2xl", "3xl"]}
         mt={4}
@@ -68,10 +84,9 @@ const Contact = () => {
         Discuss a project{" "}
       </Heading>
 
-      <form onSubmit={handleSubmit(onFormSubmit)}>
+      <form ref={contactRef} onSubmit={handleSubmit(onFormSubmit)}>
         <FormControl
           isInvalid={errors.name || errors.email || errors.message}
-          fontFamily="'Poppins', sans-serif"
           color="blue.900"
         >
           <FormLabel>Name</FormLabel>

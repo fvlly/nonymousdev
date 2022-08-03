@@ -43,7 +43,6 @@ const Hamburger = () => {
             <VStack
               fontWeight="bold"
               fontSize="large"
-              fontFamily="'Poppins', sans-serif"
               spacing={20}
             >
               <Link  as={HashLink} to="#About" onClick={onClose}>

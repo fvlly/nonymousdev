@@ -1,7 +1,16 @@
-import { VStack, Box, Heading, Text, Flex, Button } from "@chakra-ui/react/";
+import { Box, Heading, Text, Flex, Button } from "@chakra-ui/react/";
 import { motion } from "framer-motion";
+import LinkButton from "./LinkButton";
 
-const ProjectCard = ({ title, description, inProgress, bgImg }) => {
+const ProjectCard = ({
+  title,
+  description,
+  inProgress,
+  backend,
+  bgImg,
+  live,
+  source,
+}) => {
   const renderButton = () => {
     if (inProgress) {
       return (
@@ -10,7 +19,7 @@ const ProjectCard = ({ title, description, inProgress, bgImg }) => {
           variant="outline"
           size="lg"
           colorScheme="white"
-          color='white'
+          color="white"
           disabled
         >
           In progress
@@ -18,15 +27,19 @@ const ProjectCard = ({ title, description, inProgress, bgImg }) => {
       );
     }
 
+    if (backend) {
+      return <LinkButton borderColor="blue.900" text="Source" href={source} />;
+    }
+
     return (
       <Flex gap={[3, 4]} my={[4, 6]}>
-        <Button variant="outline" size="md" colorScheme="orange">
-          View live
-        </Button>
-        <Button variant="ghost" colorScheme="blue">
-          {" "}
-          Source Code
-        </Button>
+        <LinkButton borderColor="blue.900" text="Live" href={live} />
+        <LinkButton
+          borderColor="orange.500"
+          text="Source"
+          color="orange.500"
+          href={source}
+        />
       </Flex>
     );
   };
@@ -40,8 +53,6 @@ const ProjectCard = ({ title, description, inProgress, bgImg }) => {
       boxShadow="lg"
       minH={["300px"]}
       borderRadius={["10px", "12px"]}
-      border="1px solid"
-      borderColor="blue.900"
     >
       <Box
         minH="150px"
@@ -50,11 +61,15 @@ const ProjectCard = ({ title, description, inProgress, bgImg }) => {
         roundedTop="10px"
         backgroundRepeat="no-repeat"
       ></Box>
-      <Box p={[2, 3]} backgroundColor={inProgress && 'blue.900'} color={inProgress && 'white'}>
-        <Heading as="h5" fontFamily="'Poppins', sans-serif" my={[4, 6]}>
+      <Box
+        p={[2, 3]}
+        backgroundColor={inProgress && "blue.900"}
+        color={inProgress && "white"}
+      >
+        <Heading as="h5"  my={[4, 6]}>
           {title}
         </Heading>
-        <Text fontSize={["18px",'18px', "24px"]}>{description}</Text>
+        <Text fontSize={["18px", "18px", "20px"]}>{description}</Text>
         {renderButton()}
       </Box>
     </Box>

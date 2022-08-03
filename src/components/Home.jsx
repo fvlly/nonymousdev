@@ -1,7 +1,16 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { HashLink } from "react-router-hash-link";
-import {Box,Heading,Text,Flex,Button,HStack,Icon,Link,} from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Flex,
+  Button,
+  HStack,
+  Icon,
+  Link,
+} from "@chakra-ui/react";
 import {
   AiFillLinkedin,
   AiFillGithub,
@@ -95,7 +104,6 @@ const Home = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          fontFamily="'Poppins', sans-serif"
           fontSize={["16px", "30px", "30px", "40px"]}
           lineHeight={["30px", "45px", "45px", "65px"]}
         >
@@ -107,7 +115,6 @@ const Home = () => {
           initial="hidden"
           animate="visible"
           whileHover="hover"
-          fontFamily="'Poppins', sans-serif"
           fontSize={["28px", "40px", "50px", "80px"]}
           lineHeight={["40px", "60px", "60px", "96px"]}
           color="orange.700"
@@ -119,7 +126,6 @@ const Home = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          fontFamily="'Poppins', sans-serif"
           fontSize={["18px", "30px", "30px", "35px"]}
           lineHeight={["30px", "45px", "45px", "60px"]}
         >
@@ -140,7 +146,6 @@ const Home = () => {
               initial="hidden"
               animate="visible"
               whileHover="hover"
-              fontFamily="'Poppins', sans-serif"
               fontSize={["initial", "md", "large"]}
               bgColor="blue.900"
               color="white"

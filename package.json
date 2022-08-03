@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.4",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "dotenv": "^16.0.1",
     "framer-motion": "^6.5.1",
     "lottie-web": "^5.9.6",
     "react": "^18.2.0",
@@ -27,6 +29,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "react-error-overlay": "^6.0.9",
     "vite": "^3.0.0"
   }
 }

@@ -1,5 +1,5 @@
 import { useState,useEffect} from "react";
-import { Flex, Image, HStack, Text, Link, textDecoration } from "@chakra-ui/react";
+import { Flex, Image, HStack, Link } from "@chakra-ui/react";
 import Hamburger from "./Hamburger";
 import { HashLink } from "react-router-hash-link";
 const Header = () => {

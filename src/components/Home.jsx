@@ -76,10 +76,9 @@ const Home = () => {
       autoplay: true,
     });
 
-    // return lottie.stop();
+  
   }, []);
 
-  console.log(lottieRef);
 
   return (
     <Box

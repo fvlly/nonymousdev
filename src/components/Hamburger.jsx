@@ -5,7 +5,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Flex,
   Box,
   Icon,
   useDisclosure,
@@ -13,7 +12,7 @@ import {
   VStack,
   Link,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+
 import { HashLink } from "react-router-hash-link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -41,17 +40,27 @@ const Hamburger = () => {
           </DrawerCloseButton>
           <DrawerBody mt={6}>
             <VStack
+            pt={20}
+              sx={{
+                a: {
+                  _hover: {
+                    color: "orange.800",
+                    scale:1.1,
+                    textDecoration: "none",
+                  },
+                },
+              }}
               fontWeight="bold"
-              fontSize="large"
+              fontSize="45px"
               spacing={20}
             >
-              <Link  as={HashLink} to="#About" onClick={onClose}>
+              <Link as={HashLink} to="#about" onClick={onClose}>
                 About
               </Link>
-              <Link as={HashLink} to="#Project">
+              <Link as={HashLink} to="#project" onClick={onClose}>
                 Projects
               </Link>
-              <Link as={HashLink} to="#contact">
+              <Link as={HashLink} to="#contact" onClick={onClose}>
                 Contact
               </Link>
             </VStack>

@@ -9,7 +9,7 @@ const LinkButton = ({ borderColor, text, color, href }) => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      w={["80px", "110px"]}
+      w={["110px", "130px"]}
       h={["40px", "40px"]}
       border="1px solid"
       color={color}

@@ -1,15 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
-import {
-  Box,
-  Heading,
-  Text,
-  Textarea,
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  Button,
+import {Box,Heading,Text,Textarea,FormControl,FormLabel,Input,FormErrorMessage,Button,
   Flex,
   useToast,
 } from "@chakra-ui/react";
@@ -25,14 +16,28 @@ const Contact = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm();
+    formState,
+    formState: {
+      errors,
+      isValid,
+      isSubmitting,
+      isSubmitSuccessful,
+    },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
-  console.log(errors);
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) reset();
+  }, [formState, reset]);
 
   //helper
   const onFormSubmit = (data) => {
-    console.log(import.meta.env.VITE_EMAILJS_PUBLIC_API_KEY);
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -42,34 +47,33 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          reset()
+          toast({
+            title: "Submitted!",
+            status: "info",
+            duration: 4000,
+            isClosable: true,
+          })
         },
         (error) => {
-          console.log(error.text);
+          toast({
+            title: error.message,
+            status: "danger",
+            duration: 4000,
+            isClosable: true,
+          })
         }
       );
 
-    toast({
-      title: "Submitted!",
-      status: "info",
-      duration: 3000,
-      isClosable: true,
-    });
+    
   };
 
   return (
-    <Box
-      as="section"
-      id="contact"
-      w={["80%", "60%"]}
-      mx="auto"
-    >
+    <Box as="section" id="contact" w={["80%", "60%"]} mx="auto">
       <Text
         textAlign={"center"}
         fontSize={["sm", "md", "lg"]}
         mt={[8, 10]}
-        color={"blue.500"}
+        color={"blue.800"}
       >
         Doesn't have to end here, let's work together
       </Text>
@@ -81,14 +85,11 @@ const Contact = () => {
         color="blue.900"
         textAlign={"center"}
       >
-        Discuss a project{" "}
+        Discuss a project
       </Heading>
 
-      <form ref={contactRef} onSubmit={handleSubmit(onFormSubmit)}>
-        <FormControl
-          isInvalid={errors.name || errors.email || errors.message}
-          color="blue.900"
-        >
+      <form  ref={contactRef} onSubmit={handleSubmit(onFormSubmit)}>
+        <FormControl isInvalid={errors.name} color="blue.900">
           <FormLabel>Name</FormLabel>
           <Input
             {...register("name", {
@@ -98,8 +99,10 @@ const Contact = () => {
             placeholder="Your Name"
           />
           <FormErrorMessage>
-            {errors.name && errors.name.message}
+            { errors.name && errors.name.message}
           </FormErrorMessage>
+        </FormControl>
+        <FormControl isInvalid={errors.email} color="blue.900">
           <FormLabel>Email address</FormLabel>
           <Input
             {...register("email", { required: "Please enter Valid email" })}
@@ -109,30 +112,33 @@ const Contact = () => {
           <FormErrorMessage>
             {errors.email && errors.email.message}
           </FormErrorMessage>
-
+        </FormControl>
+        <FormControl isInvalid={errors.message} color="blue.900">
+          <FormLabel>Message</FormLabel>
           <Textarea
             {...register("message", {
               required: "Kindly leave a message ",
-              minLength: 40,
             })}
-            mt={4}
+            
             placeholder="Your Message"
           />
           <FormErrorMessage>
             {errors.message && errors.message.message}
           </FormErrorMessage>
-
-          <Flex my={[4, 6]} py={["10px", "20px"]} justifyContent={"end"}>
-            <Button
-              type="submit"
-              size={["sm", "md", "lg"]}
-              colorScheme="orange"
-            >
-              {" "}
-              Submit{" "}
-            </Button>
-          </Flex>
         </FormControl>
+
+        <Flex my={[4, 6]} py={["10px", "20px"]} justifyContent={"start"}>
+          <Button
+            isDisabled={formState.isSubmitting}
+            type="submit"
+            size={["sm", "md", "lg"]}
+            colorScheme="orange"
+            isLoading={formState.isSubmitting}
+            loadingText="Submitting"
+          >
+            Send
+          </Button>
+        </Flex>
       </form>
     </Box>
   );

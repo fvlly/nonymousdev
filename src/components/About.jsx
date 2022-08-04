@@ -72,9 +72,9 @@ const About = () => {
           constantly to exhibit high technical problem solving skills.
         </Text>
         <Text>
-          I am a freelancer based in Abuja, Nigeria, currently to apply myself
-          within organisations that are exciting,support corporate growth while
-          developing telling solutions
+          I am a freelancer based in Abuja, Nigeria, willing to apply myself
+          within organisations that are exciting and support both individual
+          andcorporate growth while developing telling solutions.
         </Text>
       </VStack>
     </Flex>

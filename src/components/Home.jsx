@@ -66,6 +66,8 @@ const linkVariants = {
 };
 
 const Home = () => {
+
+  //background effect
   const lottieRef = useRef(null);
   useEffect(() => {
     lottie.loadAnimation({

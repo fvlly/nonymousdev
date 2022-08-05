@@ -24,7 +24,7 @@ const Hamburger = () => {
   return (
     <Box display={{ base: "flex", md: "none" }}>
       <Button ref={btnRef} onClick={onOpen}>
-        <Icon as={GiHamburgerMenu} />
+        <Icon as={GiHamburgerMenu}  w={6} h={6}  />
       </Button>
       <Drawer
         size="full"

@@ -67,12 +67,12 @@ const About = () => {
       >
         <Text>
           I'm a frontend heavy fullstack developer who is passionate about
-          creating solution that impact livelihood and business outcomes. I have
+          creating solutions that impact livelihood and business outcomes. I have
           a knack for mutual learning and self-development which challenges me
           constantly to exhibit high technical problem solving skills.
         </Text>
         <Text>
-          I am a freelancer based in Abuja, Nigeria, willing to apply myself
+          I am a Nigerian based developer willing to apply myself
           within organisations that are exciting and support both individual
           andcorporate growth while developing telling solutions.
         </Text>

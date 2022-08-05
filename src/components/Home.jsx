@@ -98,6 +98,7 @@ const Home = () => {
         width={["70%"]}
         textAlign="center"
         position="absolute"
+        zIndex={2}
         top="30%"
       >
         <Text

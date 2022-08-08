@@ -46,7 +46,8 @@ const buttonVariants = {
     },
   },
   hover: {
-    backgroundColor: "blue.700",
+    textDecoration:'none',
+    backgroundColor:"#1a355d",
     scale: 1.1,
     transition: {
       yoyo: 10,
@@ -56,9 +57,9 @@ const buttonVariants = {
 
 const linkVariants = {
   hover: {
-    y: [-10, 0, 10, 5, 0],
+    textDecoration:'none',
     scale: 1.2,
-    color: "orange.500",
+    color: "#dd6b20",
     transition: {
       delay: 0.5,
     },
@@ -166,7 +167,7 @@ const Home = () => {
           animate={{ opacity: 1 }}
           transition=".7s ease-in 2s"
         >
-          <HStack pt={20} spacing={[8, 10, 12]}>
+          <HStack py={20}   spacing={[8, 10, 12]}>
             <Link
               as={motion.a}
               variants={linkVariants}

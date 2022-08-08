@@ -16,7 +16,7 @@ const ProjectList = () => {
         pt={200}
         mb={[6, 8, 10]}
       >
-        My Projects
+         Projects
       </Heading>
       <SimpleGrid
         minChildWidth={"300px"}

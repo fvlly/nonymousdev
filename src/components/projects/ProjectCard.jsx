@@ -47,7 +47,7 @@ const ProjectCard = ({
   return (
     <Box
       as={motion.div}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.9 }}
       transition="0.3s linear "
       boxShadow="lg"
@@ -62,7 +62,7 @@ const ProjectCard = ({
         backgroundRepeat="no-repeat"
       ></Box>
       <Box
-        p={[2, 3]}
+        p={[4]}
         backgroundColor={inProgress && "blue.900"}
         color={inProgress && "white"}
       >

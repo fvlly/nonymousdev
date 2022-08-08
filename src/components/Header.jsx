@@ -54,7 +54,7 @@ const Header = () => {
           About
         </Link>
         <Link textDecoration="project" as={HashLink} to="#project">
-          Project
+          Projects
         </Link>
         <Link as={HashLink} to="#contact" textDecoration="none">
           Contact

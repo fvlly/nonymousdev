@@ -2,36 +2,14 @@ import { Flex, Text, Heading, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+import {headerVariant,bodyVariant} from '../motionVariants'
+
 const About = () => {
   const { ref, inView } = useInView({
     threshold: 0.3,
   });
 
-  //animations
-
-  const headerVariant = {
-    hidden: {
-      x: "-100vw",
-    },
-    visible: {
-      x: "0",
-      transition: {
-        delay: 0.5,
-      },
-    },
-  };
-
-  const bodyVariant = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 1,
-      },
-    },
-  };
+  
 
   return (
     <Flex
@@ -74,7 +52,7 @@ const About = () => {
         <Text>
           I am a Nigerian based developer willing to apply myself
           within organisations that are exciting and support both individual
-          andcorporate growth while developing telling solutions.
+          and corporate growth while developing telling solutions.
         </Text>
       </VStack>
     </Flex>

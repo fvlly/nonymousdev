@@ -12,14 +12,14 @@ const LinkButton = ({ borderColor, text, color, href }) => {
       w={["110px", "130px"]}
       h={["40px", "40px"]}
       border="1px solid"
-      fontWeight='bold'
+      fontWeight="bold"
       color={color}
       borderColor={borderColor}
-      bgColor='transparent'
+      bgColor="transparent"
       rounded={6}
       href={href}
       target="_blank"
-      _hover={{ textDecoration: "none",transform:'scale(1.1)', }}
+      _hover={{ textDecoration: "none", transform: "scale(1.1)" }}
     >
       {text === "Live" ? <BsGlobe2 /> : <BsGithub />}
       {text}

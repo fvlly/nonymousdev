@@ -23,8 +23,8 @@ const Hamburger = () => {
 
   return (
     <Box display={{ base: "flex", md: "none" }}>
-      <Button ref={btnRef} onClick={onOpen}>
-        <Icon as={GiHamburgerMenu}  w={6} h={6}  />
+      <Button ref={btnRef} onClick={onOpen} aria-label="Open Hamburger Menu">
+        <Icon as={GiHamburgerMenu} w={6} h={6} />
       </Button>
       <Drawer
         size="full"
@@ -35,17 +35,17 @@ const Hamburger = () => {
       >
         <DrawerOverlay />
         <DrawerContent bgColor="gray.200">
-          <DrawerCloseButton>
+          <DrawerCloseButton aria-label="Close Hamburger Menu">
             <Icon as={AiOutlineClose} w={6} h={6} />
           </DrawerCloseButton>
           <DrawerBody mt={6}>
             <VStack
-            pt={20}
+              pt={20}
               sx={{
                 a: {
                   _hover: {
                     color: "orange.800",
-                    scale:1.1,
+                    scale: 1.1,
                     textDecoration: "none",
                   },
                 },

@@ -8,7 +8,7 @@ const ProjectList = () => {
       id="project"
       minH={"100vh"}
       color="blue.900"
-      w={['full','full','full','80%']}
+      w={['full','full','full','full']}
       mx='auto'
     >
       <Heading
@@ -19,21 +19,21 @@ const ProjectList = () => {
          Projects
       </Heading>
       <SimpleGrid
-        minChildWidth={"300px"}
-        columns={[1, 2, 2,2]}
-        spacing={[4, 5, 6, 8]}
+        minChildWidth={['300px','300px','300px','350px','500px']}
+        
+        spacing={[4, 4, 4, 6]}
       >
         <ProjectCard
           title="iMovies"
           description="React with styled props app to search movie titles from OMDB API"
-          bgImg="../../images/movie.png"
+          bgImg="../../images/movie.webp"
           live='https://testmovieapp.netlify.app/'
           source='https://github.com/fvlly/slickmedia'
         />
         <ProjectCard
           title="Akagum"
           description="Expense tracker app using the useContext and useReducer Hook"
-          bgImg="../../images/expense.png"
+          bgImg="../../images/expense.webp"
           live='https://akagum.netlify.app/'
           source='https://github.com/fvlly/Budget-Tracker'
         />
@@ -41,7 +41,7 @@ const ProjectList = () => {
           title="Task Manager"
           description="Restful API for handing tasks featuring JSON web tokens"
           backend="backend"
-          bgImg="../../images/api.png"
+          bgImg="../../images/api.webp"
           source ='https://github.com/fvlly/Task-manager-app-'
 
         />
@@ -49,7 +49,7 @@ const ProjectList = () => {
           title="Feedback Loop"
           description="Web application for getting feeback from  clients"
           inProgress="in-Progress"
-          bgImg="../../images/feedback.png"
+          bgImg="../../images/feedback.webp"
         />
       </SimpleGrid>
     </Box>

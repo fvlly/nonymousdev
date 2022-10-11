@@ -15,7 +15,7 @@ const ProjectCard = ({
     if (inProgress) {
       return (
         <Button
-          my={[6, 8]}
+          my={[4,7]}
           variant="outline"
           size="lg"
           colorScheme="white"
@@ -51,11 +51,11 @@ const ProjectCard = ({
       whileTap={{ scale: 0.9 }}
       transition="0.3s linear "
       boxShadow="lg"
-      minH={["300px"]}
+      minH={["500px"]}
       borderRadius={["10px", "12px"]}
     >
       <Box
-        minH="150px"
+        minH="230px"
         bgImage={bgImg}
         bgSize="cover"
         roundedTop="10px"
@@ -66,7 +66,7 @@ const ProjectCard = ({
         backgroundColor={inProgress && "blue.900"}
         color={inProgress && "white"}
       >
-        <Heading as="h5"  my={[4, 6]}>
+        <Heading as="h5" my={[4, 6]}>
           {title}
         </Heading>
         <Text fontSize={["18px", "18px", "20px"]}>{description}</Text>

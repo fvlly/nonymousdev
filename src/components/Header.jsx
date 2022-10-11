@@ -40,8 +40,8 @@ const Header = () => {
         }
       }}
     >
-      <Link as={HashLink} to="#home">
-        <Image src="../../images/devlogo.png" w="50px" />
+      <Link as={HashLink} to="#home" aria-label="HomePage">
+        <Image src="../../images/devlogo.webp" w="50px" alt='dev-logo' aria-label="Link to HomePage" />
       </Link>
       <HStack
         display={{ base: "none", md: "flex" }}

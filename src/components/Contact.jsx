@@ -74,7 +74,7 @@ const Contact = () => {
       as="section"
       id="contact"
       textAlign={"left"}
-      w={["100%", "100%", "80%", "60%"]}
+      w={["100%", "100%", "80%", ]}
       mx="auto"
     >
       <Text fontSize={["sm", "md", "lg"]} mt={[8, 10]} color={"blue.800"}>

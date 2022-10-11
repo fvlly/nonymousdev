@@ -19,52 +19,9 @@ import {
 import lottie from "lottie-web/build/player/lottie_light";
 import heroblob from "../lottie/heroblob.json";
 
-//animations
+import { containerVariants,buttonVariants,linkVariants } from "../motionVariants";
 
-const containerVariants = {
-  hidden: { y: "-100vh" },
-  visible: {
-    y: 0,
-    transition: {
-      delay: 0.5,
-      when: "beforeChildren",
-    },
-  },
-  hover: {
-    scale: 1.2,
-  },
-};
 
-const buttonVariants = {
-  hidden: {
-    y: 20,
-  },
-  visible: {
-    y: 0,
-    transition: {
-      yoyo: Infinity,
-    },
-  },
-  hover: {
-    textDecoration:'none',
-    backgroundColor:"#1a355d",
-    scale: 1.1,
-    transition: {
-      yoyo: 10,
-    },
-  },
-};
-
-const linkVariants = {
-  hover: {
-    textDecoration:'none',
-    scale: 1.2,
-    color: "#dd6b20",
-    transition: {
-      delay: 0.5,
-    },
-  },
-};
 
 const Home = () => {
 
@@ -143,7 +100,7 @@ const Home = () => {
           justify="center"
         >
           <Link as={HashLink} to="#project">
-            <Button
+            <Button tabIndex='0'
               as={motion.button}
               variants={buttonVariants}
               initial="hidden"
@@ -173,6 +130,7 @@ const Home = () => {
               variants={linkVariants}
               whileHover="hover"
               href="https://www.linkedin.com/in/luqman-ibrahim-62955222a/"
+              aria-label="LinkedIn"
             >
               <Icon as={AiFillLinkedin} w={[6, 8]} h={[6, 8]} />
             </Link>
@@ -181,6 +139,8 @@ const Home = () => {
               variants={linkVariants}
               whileHover="hover"
               href="https://github.com/fvlly"
+              aria-label="GitHub"
+
             >
               <Icon as={AiFillGithub} w={[6, 8]} h={[6, 8]} />
             </Link>
@@ -189,6 +149,8 @@ const Home = () => {
               variants={linkVariants}
               whileHover="hover"
               href="https://wa.me/36203147860"
+              aria-label="WhatsApp"
+
             >
               <Icon as={AiOutlineWhatsApp} w={[6, 8]} h={[6, 8]} />
             </Link>

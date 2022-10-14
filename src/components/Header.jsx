@@ -23,7 +23,7 @@ const Header = () => {
       zIndex={2}
       w={"full"}
       top={0}
-      bgColor={isChangeable ? "white" : "gray.100"}
+      bgColor={isChangeable ? "gray.100" : "gray.200"}
       color= "orange.500"
       minH="10vh"
       px={8}

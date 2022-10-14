@@ -74,11 +74,11 @@ const Contact = () => {
       as="section"
       id="contact"
       textAlign={"left"}
+      
       w={["100%", "100%", "80%", ]}
-      mx="auto"
     >
-      <Text fontSize={["sm", "md", "lg"]} mt={[8, 10]} color={"blue.800"}>
-        Doesn't have to end here, let's work together
+      <Text fontSize={["sm", "md", "lg"]} fontWeight='bold' mt={[8]} color={"blue.800"}>
+        It doesn't have to end here, let's discuss a project.
       </Text>
       <Heading
         as="h2"
@@ -128,7 +128,7 @@ const Contact = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <Flex my={[4, 6]} py={["10px", "20px"]} justifyContent={"start"}>
+        <Flex  py={["10px", "20px"]} justifyContent={"start"}>
           <Button
             isDisabled={formState.isSubmitting}
             type="submit"
@@ -137,7 +137,7 @@ const Contact = () => {
             isLoading={formState.isSubmitting}
             loadingText="Submitting"
           >
-            Send
+            Send Message
           </Button>
         </Flex>
       </form>

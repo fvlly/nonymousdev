@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <Box
       as="section"
-      bgColor="gray.100"
+      bgColor="gray.200"
       position="relative"
       display="flex"
       minH="100vh"
@@ -77,7 +77,7 @@ const Home = () => {
           whileHover="hover"
           fontSize={["28px", "40px", "50px", "80px"]}
           lineHeight={["40px", "60px", "60px", "96px"]}
-          color="orange.700"
+          color="orange.500"
         >
           Luqman Ibrahim
         </Heading>

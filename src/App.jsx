@@ -30,6 +30,7 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Home />
+        <Box bgColor='gray.100'>
         <Container maxW={"80%"} mx="auto">
          <Suspense fallback={'...loading'}>
           <About />
@@ -37,6 +38,7 @@ const App = () => {
           <Box as='section' ref={contactRef} >{contactInView && <LazyContact />}</Box> 
          </Suspense>
         </Container>
+        </Box>
         <Footer />
       </BrowserRouter>
     </>

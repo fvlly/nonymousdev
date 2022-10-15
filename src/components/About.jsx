@@ -50,7 +50,7 @@ const About = () => {
         <Text>
           I have got a degree in Civil Engineering,albeit I picked up coding
           around the time from electives, this improved my thinking while also
-          sparking some creativity, making my switch to Frontend developemnt
+          sparking some creativity, making my switch to Frontend developement
           inevtiable.
         </Text>
         <Text>

@@ -16,11 +16,13 @@ const ProjectCard = ({
       return (
         <Button
           my={[4,7]}
-          variant="outline"
           size="lg"
-          colorScheme="white"
+          bgColor={'blue.900'}
           color="white"
           disabled
+          _hover={{
+            bgColor: 'black'
+          }}
         >
           In progress
         </Button>
@@ -63,8 +65,7 @@ const ProjectCard = ({
       ></Box>
       <Box
         p={[4]}
-        backgroundColor={inProgress && "blue.900"}
-        color={inProgress && "white"}
+       
       >
         <Heading as="h5" my={[4, 6]}>
           {title}
